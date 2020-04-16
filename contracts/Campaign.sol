@@ -4,7 +4,17 @@ contract CampaignStore {
     address [] public deployedCampaigns;
 
     func(uint minimum) public {
-        address newCampaign = new Campaign(minimum);   //creates a new Campaign to the ntk, deploys it and returns the Campaign's address 
+        address newCampaign = new Campaign(minimum, msg.sender);   //creates a new Campaign to the ntk, deploys it and returns the Campaign's address 
+        deployedCampaigns.push(newCampaign);   //push the newCampaign ('s address) to the arr
+
+    }
+}
+
+contract CampaignStore {
+    address [] public deployedCampaigns;
+
+    function createCampaign(uint minimum) public {
+        address newCampaign = new Campaign(minimum, msg.sender);   //creates a new Campaign to the ntk, deploys it and returns the Campaign's address 
         deployedCampaigns.push(newCampaign);   //push the newCampaign ('s address) to the arr
 
     }
@@ -16,7 +26,7 @@ contract Campaign {
         uint value;
         address recipient;
         bool complete;
-        uint yesVotes;
+        uint approvalCount;
         mapping(address => bool) hasApproved;
 
     }
@@ -32,8 +42,8 @@ contract Campaign {
         _;
     }
 
-    function Campaign(uint minimum) public {
-        manager = msg.sender;
+    function Campaign(uint minimum, address creator) public {
+        manager = creator;
         minimumContribution = minimum;
     }
 
