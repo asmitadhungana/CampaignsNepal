@@ -6,18 +6,12 @@ contract CampaignStore {
     func(uint minimum) public {
         address newCampaign = new Campaign(minimum, msg.sender);   //creates a new Campaign to the ntk, deploys it and returns the Campaign's address 
         deployedCampaigns.push(newCampaign);   //push the newCampaign ('s address) to the arr
-
     }
-}
 
-contract CampaignStore {
-    address [] public deployedCampaigns;
-
-    function createCampaign(uint minimum) public {
-        address newCampaign = new Campaign(minimum, msg.sender);   //creates a new Campaign to the ntk, deploys it and returns the Campaign's address 
-        deployedCampaigns.push(newCampaign);   //push the newCampaign ('s address) to the arr
-
+    function getDeployedCampaigns() public view returns (address[]) {
+        return deployedCampaigns;
     }
+
 }
 
 contract Campaign {
