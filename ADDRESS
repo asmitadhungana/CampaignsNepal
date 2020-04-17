@@ -1,0 +1,24 @@
+0x72355dF6F2cBEAF62F227D02A9496c6f2fb663C9
+
+dependencies:
+
+@truffle/hdwallet-provider
+solc
+mocha
+web3@1.0.0-beta.26
+
+fs-extra
+npm init
+
+for compiling: node compile.js
+for deploying: node deploy.js
+
+for front end:
+nextjs - for multipage, server-side rendering
+react
+react-dom
+semantic-ui-react   [Check these sites]
+semantic-ui-css 
+
+for running dapp on browser: npm run dev
+
