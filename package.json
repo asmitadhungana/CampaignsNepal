@@ -1,0 +1,29 @@
+{
+  "name": "fundraiser",
+  "version": "1.0.0",
+  "description": "a crowdfund project backed by blockchain",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Crowdfund"
+  },
+  "keywords": [
+    "blockchain",
+    "solidity",
+    "web3",
+    "ethereum",
+    "solc"
+  ],
+  "author": "Asmita Dhungana",
+  "license": "ISC",
+  "dependencies": {
+    "fs-extra": "^9.0.0",
+    "ganache-cli": "^6.9.1",
+    "mocha": "^7.1.1",
+    "solc": "^0.4.17",
+    "web3": "^1.0.0-beta.26"
+  }
+}
