@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import { Card, Button } from "semantic-ui-react";
 import store from "../ethereum/store";
-import { Card } from "semantic-ui-react";
+import Layout from "../components/Layout";
 
 class CampaignIndex extends Component {
   //We do the data loading in this fxn of Nextjs(server-side rendering)
@@ -10,8 +11,33 @@ class CampaignIndex extends Component {
     return { campaigns: campaigns }; //this object [arr of addresses] is provided to our component as props
   }
 
+  renderCampaigns() {
+    const items = this.props.campaigns.map((address) => {
+      return {
+        header: address,
+        description: <a>Show Campaign</a>,
+        fluid: true,
+      };
+    });
+
+    return <Card.Group items={items} />;
+  }
+
   render() {
-    return <div>{this.props.campaigns[0]}</div>;
+    return (
+      <Layout>
+        <div>
+          <h1>Open Campaigns</h1>
+          <Button
+            floated="right"
+            content="Create New Campaign"
+            icon="add circle"
+            primary={true}
+          />
+          {this.renderCampaigns()}
+        </div>
+      </Layout>
+    );
   }
 }
 
