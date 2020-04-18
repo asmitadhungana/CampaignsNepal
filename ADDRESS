@@ -1,3 +1,4 @@
+deployed to Rinkeby test net at address:
 0x0544B5B837a099457811442CAD37Bc379cbd8243
 
 dependencies:
@@ -19,6 +20,8 @@ react
 react-dom
 semantic-ui-react   [Check these sites]
 semantic-ui-css 
+
+npm install next-routes --save => for dynamic routing [which isn't supported by nextjs by default]
 
 for running dapp on browser: npm run dev
 

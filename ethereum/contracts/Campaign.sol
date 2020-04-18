@@ -16,6 +16,12 @@ contract CampaignStore {
 
 
 contract Campaign {
+
+    function Campaign(uint256 minimum, address creator) public {
+        manager = creator;
+        minimumContribution = minimum;
+    } 
+    
     struct Request {
         string description;
         uint256 value;
@@ -24,6 +30,7 @@ contract Campaign {
         uint256 approvalCount;
         mapping(address => bool) hasApproved;
     }
+     
 
     Request[] public requests;
     address public manager;
@@ -36,10 +43,7 @@ contract Campaign {
         _;
     }
 
-    function Campaign(uint256 minimum, address creator) public {
-        manager = creator;
-        minimumContribution = minimum;
-    }
+    
 
     function contribute() public payable {
         require(msg.value > minimumContribution);

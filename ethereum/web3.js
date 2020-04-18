@@ -1,17 +1,18 @@
-import Web3 from "web3";
+// ethereum/web3.js
+import Web3 from "web3"; // Web3 with capital W is the constructor.
 
-//const web3 = new Web3(window.web3.currentProvider);   NOT A VALID CODE WHILE ASSUMING NOT ALL OF OUR USERS HAVE METAMASK  PRE-INSTALLED IN THEIR BROWSER
-
+// New instance of Web3 with the provider that is automatically provided to us by MetaMask inside the browser.
+// This makes the assumption that the user has MetaMask.
 let web3;
 
-//checking to see if we're on server or browser
-//in server(NEXTjs), node is used and it has no window object in it(undef)
-if (typeof window != "undefined" && typeof window.web3 != "undefined") {
-  //We are in the browser and metamask is running
+// if - We execute inside the browser and MetaMask is available
+if (typeof window !== "undefined" && typeof window.web3 !== "undefined") {
   web3 = new Web3(window.web3.currentProvider);
 } else {
-  //We are on the server OR the user is not running metamask
+  // We are on the server *OR* the user is not running MetaMask.
+  // Create our own provider:
   const provider = new Web3.providers.HttpProvider(
+    // Pass the URL of some remote node that we have excess to (such as Infura node).
     "https://rinkeby.infura.io/v3/4d5ebec5432f4f559690e1091210c6c1"
   );
   web3 = new Web3(provider);
