@@ -3,7 +3,7 @@ import CampaignStore from "./build/CampaignStore.json";
 
 const instance = new web3.eth.Contract(
   JSON.parse(CampaignStore.interface),
-  "0x0544B5B837a099457811442CAD37Bc379cbd8243"
+  "0xAbCa6922661bE0E7862858281c0b2FAb94122625"
 );
 
 export default instance;

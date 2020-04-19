@@ -5,7 +5,7 @@ import store from "../../ethereum/store";
 import web3 from "../../ethereum/web3";
 import { Router } from "../../routes";
 
-class CampaignNew extends Component {
+class NewCampaign extends Component {
   state = {
     minimumContribution: "",
     errorMessage: "",
@@ -63,4 +63,4 @@ class CampaignNew extends Component {
   }
 }
 
-export default CampaignNew;
+export default NewCampaign;
