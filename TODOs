@@ -1,0 +1,8 @@
+node compile.js
+node deploy.js
+
+get the deployed address
+and 
+change the address in the store.js
+
+and create some new campaigns from home page!

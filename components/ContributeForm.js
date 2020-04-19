@@ -13,7 +13,7 @@ class ContributeForm extends Component {
 
   onSubmit = async (event) => {
     event.preventDefault();
-    const campaign = Campaign(this.props.campaignAddress); //making the campaign instance of current campaign available inside our onSubmit fxn
+    const campaign = Campaign(this.props.address); //making the campaign instance of current campaign available inside our onSubmit fxn
     this.setState({ loading: true, errorMessage: "" }); //turn the loading spinner on
 
     //call the contribute() fxn in Cmapiagn contract from user's account
@@ -24,7 +24,7 @@ class ContributeForm extends Component {
         value: web3.utils.toWei(this.state.value, "ether"),
       });
 
-      Router.replaceRoute(`/campaigns/${this.props.campaignAddress}`); //re-route to the same page to refresh the page and get getInitialProps to re-run so that the states of the contributorsCount and campaignBalance get updated in CampaginShow
+      Router.replaceRoute(`/campaigns/${this.props.address}`); //re-route to the same page to refresh the page and get getInitialProps to re-run so that the states of the contributorsCount and campaignBalance get updated in CampaginShow
     } catch (err) {
       this.setState({ errorMessage: err.message });
     }
